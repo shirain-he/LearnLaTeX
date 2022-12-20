@@ -1,24 +1,63 @@
-\documentclass[12pt,a4paper,UTF8]{article}
+\documentclass[12pt,a4paper,UTF8]{ctexart}
+\CTEXsetup[format={\Large\bfseries}]{part}
+\CTEXsetup[format={\Large\bfseries}]{section}
 
 \usepackage{ctex}
 \usepackage{commath}
 \usepackage{graphicx}
+\usepackage{rotating}
 \usepackage{hyperref}
 \usepackage{booktabs}
 
-\title{标 题}
-\author{heshiyu}
-\date{\today}
+% \title{标 题}
+% \author{heshiyu}
+% \date{\today}
 
 
 \begin{document}
-\maketitle
-% \tableofcontents
+% \maketitle
+\tableofcontents
 
-\section{节}
-\subsection{小节}
+\part{课程论文题目}
+人工智能基本理论及应用研究综述
 
-\textrm{English}
+\part{课程论文内容}
+\section{知识表示与推理}
+\subsection{知识与知识表示}
+\textrm{知识可以理解为事实和与事实相关的规则的集合。与之类似的是离散数学中的命题逻辑的概念，众所周知命题便是各种事实以及事实之间的推断。和命题逻辑一眼样，人工智能领域中的知识也是为了反应事物或者说是事实之间的联系与规则。相较与命题逻辑，此处的知识要求更高一些，我们希望知识至少是相对正确的（相对正确性），希望知识可以用符号等显式的表示出来以便能更好的利用这些知识（可表示、可利用性），当然知识也有很多不确定性。在不同的先决条件或者不同的规则下，所得到的知识也大相径庭。例如生物领域中“橘生淮南则为橘 生于淮北则为枳”，计算机科学中二进制10与十进制的10并不相同。}
+
+\textrm{知识表示不仅在人工智能领域中出现，其还是认知科学领域的重要内容，在AI领域，我们通常希望将知识表示训练的像人一样智慧。}
+
+\begin{enumerate}
+    \item AI知识表示：
+    \begin{description}
+        \item [表示方法] 我们如何表示知识？
+        \item [表示范围] 某一表示方法的使用范围？
+        \item [表示效果] 某种表示方案的效果如何？
+        \item [本身性质] 知识表示本身的性质问题？
+    \end{description}
+\end{enumerate}
+
+知识表示分为两个步骤，将我们生活中的信息流转化为程序可以识别的信息流，然后模仿人的感知、认知、推理等思维来解决一些人类遇到的费时费力的艰巨任务。
+
+对于AI领域的知识表示，通常有以下这些方法：
+\begin{table}[htb]
+    \begin{tabular}{@{}cccc@{}}
+    \toprule
+    知识表示方法    & 应用                                                              & 优势                                                                                  & 劣势                                                                                  \\ \midrule
+    一阶谓词逻辑表示法 & 知识表示与推理                                                         & 自然精确严密易实现                                                                           & \begin{tabular}[c]{@{}c@{}}不能表示不确定的知识\\ 耦合度高，效率低\end{tabular}                       \\
+    产生式表示法    & \begin{tabular}[c]{@{}c@{}}基于遗传算法的问题求解系统\\ 图搜索求解模型\end{tabular} & \begin{tabular}[c]{@{}c@{}}自然、模块性\\ 有效性、清晰性\end{tabular}                            & \begin{tabular}[c]{@{}c@{}}不能表达具有结构性的知识\\ 效率不高\end{tabular}                         \\
+    框架表示法     & 复杂知识的框架网络                                                       & 结构性、继承性、自然性                                                                         & \begin{tabular}[c]{@{}c@{}}缺乏形式理论\\ 适应能力不强\end{tabular}                             \\
+    语义网络表示法   & 机器翻译 、问答系统、自然语言理解                                               & \begin{tabular}[c]{@{}c@{}}强调语义间的联系，符合人类思维\\ 描述明确简洁直观\\ 结构化表示，显性描述语义关系\end{tabular} & \begin{tabular}[c]{@{}c@{}}不能充分保证推论的严格有效性\\ 不能处理结点太多的推理\\ 不便表达判断性与深层知识\end{tabular} \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+
+
+
+
+
+
 
 行内公式 $\int f(x) dx$
 \begin{equation}
