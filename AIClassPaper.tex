@@ -1,0 +1,65 @@
+\documentclass[12pt,a4paper,UTF8]{article}
+
+\usepackage{ctex}
+\usepackage{commath}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+\title{标 题}
+\author{heshiyu}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+% \tableofcontents
+
+\section{节}
+\subsection{小节}
+
+\textrm{English}
+
+行内公式 $\int f(x) dx$
+\begin{equation}
+    \int f(x) \dif x
+    \label{eq:1}
+\end{equation}
+
+% 图~\ref{fig:kebiao} ，式~\ref{eq:1}
+
+% \begin{figure}[htpb]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{课表.png}
+%     \caption{课表.}
+%     \label{fig:kebiao}
+% \end{figure}
+
+\begin{table}[htb]
+    \centering
+    \caption{表格示例.}
+    \begin{tabular}{cc}
+        \hline
+        \hline 1    & 2    \\
+        \hline 内容1 & 内容2 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+% Please add the following required packages to your document preamble:
+% \usepackage{booktabs}
+\begin{table}[htb]
+    \begin{tabular}{@{}ccccc@{}}
+    \toprule
+    AI & 方法     & 浓度   & zhing & l两 \\ \midrule
+    a  & s发给第三个 & a是的撒 & a2    & b  \\ \bottomrule
+    \end{tabular}
+\end{table}
+
+中文
+
+
+% \bibliographystyle{unsrt}
+% \bibliography{F:/BibTeXref/zoterorepo.bib}
+\end{document}
+
