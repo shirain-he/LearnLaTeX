@@ -1,0 +1,17 @@
+{
+	"": {
+		"prefix": "tta",
+		"body": [
+			"\\begin{table}[htb]",
+			"    \\centering",
+			"    \\caption{请填充表格注释.}",
+			"    \\label{table:命名引用标签}",
+			"    \\begin{tabular}{@{}cc@{}}",
+			"    \\toprule",
+			"    ",
+			"    \\end{tabular}",
+			"\\end{table}"
+		],
+		"description": ""
+	}
+}

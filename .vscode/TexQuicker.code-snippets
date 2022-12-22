@@ -1,0 +1,14 @@
+{
+	"": {
+		"prefix": "tpic",
+		"body": [
+			"\\begin{figure}[htpb]",
+			"     \\centering",
+			"     \\includegraphics[width=0.8\\textwidth]{请填充图片文件路径}",
+			"     \\caption{请输入图片注释}",
+			"     \\label{fig:命名引用标签}",
+			"\\end{figure}"
+		],
+		"description": ""
+	}
+}
