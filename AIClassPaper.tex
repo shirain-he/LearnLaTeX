@@ -77,11 +77,7 @@
 
 而另一块是关于确定性推理的概念，即依据我们现有的初始信息或依据，按某种确定的推理策略不断运用库中已有知识来逐步得到确定的结论的推理过程。
 而在AI领域，我们的推理是借助程序也叫推理机实现的。
-
-确定性推理的特点见表~\ref{table:qdx特点}:
-% Please add the following required packages to your document preamble:
-% \usepackage{booktabs}
-\begin{table}[htb]
+\begin{table}[htpb]
     \centering
     \caption{知识表示方法及应用.}
     \label{table:知识表示方法应用}
@@ -97,8 +93,7 @@
     语义网络表示法              & 机器翻译、问答系统、自然语言理解                                                \\ \bottomrule
     \end{tabular}
 \end{table}
-
-\begin{table}[htb]
+\begin{table}[htpb]
     \centering
     \caption{各种知识表示方法的优劣.}
     \label{table:知识表示方法优劣}
@@ -117,8 +112,7 @@
 
 \subsection{确定性推理}
 常见的确定性推理方法有图搜索策略，盲目搜索和启发式搜索等，还有最新的像消解原理
-、规则演绎系统以及产生式系统。此处我选择启发式搜索(Heuristic)来介绍他的原理和应用。
-
+、规则演绎系统以及产生式系统。确定性推理的特点见表~\ref{table:qdx特点}，此处我选择启发式搜索(Heuristic)来介绍他的原理和应用。
 \begin{table}[htb]
     \centering
     \caption{确定性推理特点.}
@@ -132,7 +126,7 @@
     \toprule
     \end{tabular}
 \end{table}
-
+\subsubsection{确定性推理方法之启发性搜索算法}
 启发式搜索方法是一种帮你不断试探出答案的方法，但它给出的答案是具有偶然性的，也就是subject to chance。
 如在一个状态空间中，对一点的可能所在的每一个位置进行评估，先得到一个最可能的位置。
 再从这个位置出发持续进行下一轮的位置评估，这样的循环往复的搜索过程就被称为启发式搜索。
@@ -142,7 +136,7 @@
     f(n)=g(n)+h(n)
     \label{eq:启发式搜索估价}
 \end{equation}
-
+\subsubsection{一种启发性搜索算法的应用}
 天气被认为是影响航班路径规划的最主要因素，有70\%的航班延误是由于危险天气\cite{Narkawicz2016}。
 Li He和Anfei Zhao\cite{hePathPlanningMethod2019}使用启发式算法将飞机在危险天气下，不同飞行海拔高度对飞机飞行转态的影响离散化进入一个多边网格模型，
 结果发现，借助该网格所获得的最小代价的飞行路径比传统的以一个恒定海拔高度飞行的飞行路径要更短。
@@ -197,7 +191,7 @@ $ n $表示当前网格点，$ g $表示目标点，$ x_g, x_n$等表示相应�
     \toprule
     \end{tabular}
 \end{table}
-
+\subsubsection{不确定性推理之主观贝叶斯方法}
 常见的不确定性推理方法有模糊推理、可信度、证据理论、主观贝叶斯方法等等。本文主要选取主观贝叶斯
 方法来着重介绍一下。主观贝叶斯方法隶属于规则推理方法，其以贝叶斯理论为依据，克服了实际问题中很难获取到先验概率的问题。\cite{gonenComparingObjectiveSubjective2019}\cite{uzunogluAdaptiveBayesianApproach2020a}
 我们都知道贝叶斯公式为式~\ref{eq:bayes},而将全概率公式代入后可得贝叶斯公式的另一种形式，即式~\ref{eq:全概率Bayes}。
@@ -251,7 +245,7 @@ $ n $表示当前网格点，$ g $表示目标点，$ x_g, x_n$等表示相应�
     \end{array}\right.
 \end{equation}
 其中S是对E的观察，而P(E|S)表示在观察S下，E发生的概率。
-
+\subsubsection{一种主观贝叶斯方法的应用}
 袁杰等\cite{YuanJiYuGaiJinZhuGuanBeiYeSiFangFaShiBieDianRongMeiLuYiChangGongKuang2021}借助改进后的主观贝叶斯方法来
 更好的进行电熔镁炉熔炼过程异常工况识别，同时利用模糊隶属度函数对个观测状态和证据进行匹配，对金属熔炼过程中的不确定性问题即异常工况
 获取到更好的识别效果。
@@ -324,7 +318,7 @@ $ L_S $和$ L_N $由领域内的专家给出，避免了我们自己的数据统
     \caption{简单遗传算法的步骤\cite{pandeyGeneticAlgorithmsConcepts2012}.}
     \label{fig:遗传算法的步骤}
 \end{figure}
-\subsubsection{用遗传算法解决八皇后问题}
+\subsubsection{遗传算法用于八皇后问题的介绍}
 我们这次要解决的问题是八皇后问题，用八位数字来代表每个皇后，八个皇后组成遗传种群，并设置遗传种群的大小为100。
 用不相互攻击的皇后对的数目来代表fitness\_value（即适应度值）。而如果检查次数（检查当前皇后位置是否与其他所有行列的皇后冲突）达到28，
 则代表已找到八皇后的解。而是否选择该种群的某些个体进行下一轮的遗传则取决于个体的适应度值，适应度值越大，被选中的概率越高。
@@ -335,7 +329,7 @@ $ L_S $和$ L_N $由领域内的专家给出，避免了我们自己的数据统
     label       =   {Genetic_Algorithm_N_Queen.py}
 ]{Genetic_Algorithm_N_Queen.py}
 
-\subsubsection{普通遗传算法解决八皇后问题}
+\subsubsection{普通遗传算法解决八皇后问题的具体实现} 
 根据种群中每个个体的fitness\_value在当前种群中总fitness\_value中的占比（即计算每个个体适应度值的概率分布）来选择一批用于繁衍下一代种群的新个体。
 实验软件为Visual Studio Code. Version 1.56.2 测试平台：jupyter notebook，语言环境Python 3.8.13 64-bit。
 采用这种策略的实验过程和结果见列表\ref{Normal_GeneticAlgorithm}，图~\ref{fig:简单遗传算法的解8-Queen图}和图~\ref{fig:简单遗传算法的解收敛过程}。
@@ -346,17 +340,82 @@ $ L_S $和$ L_N $由领域内的专家给出，避免了我们自己的数据统
 ]{Normal_GeneticAlgorithm.py}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=12cm]{allpicture/queen100normal.eps}
+    \includegraphics[width=6cm]{allpicture/queen100normal.eps}
     \caption{简单遗传算法的解8-Queen图.}
     \label{fig:简单遗传算法的解8-Queen图}
 \end{figure}
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=12cm]{allpicture/generic100normal.eps}
+    \includegraphics[width=8cm]{allpicture/generic100normal.eps}
     \caption{简单遗传算法的解收敛过程.}
     \label{fig:简单遗传算法的解收敛过程}
 \end{figure}
 
+\section{机器学习基本理论与方法}
+\subsection{机器学习的基本概念及其学习策略}
+机器学习也叫统计学习（Statistics Learning），就是利用现有数据或者知识并去寻找一些适合他的模型对其进行描述和表示
+，并利用合适的模型对事物的发展和变化做一些合理的预测和分析，从而优化事务处理流程，提高决策的效率。
+\begin{enumerate}
+    \item 机器学习的三要素是：
+    \begin{description}
+        \item[模型（Model）] 模型就是数据里抽象出来的，那些刚好可以被拿来描述客观世界的数学特征或统计学框架。
+        \item[策略（Strategy）] 通常在模型行为阶段用来评价模型的好坏，也可以称做是模型的比较标准和选择标准。
+        \item[算法（Algorithm）] 有了数据和模型以及策略，就会在实际执行的过程中注重效率问题，这时候就需要优化模型和策略了，算法就是用来解决效率问题的优化方法。
+    \end{description}
+    \item 统计学习基本学习策略：
+    \begin{description}
+        \item 获取一个有限合理的训练数据集；
+        \item 确定学习模型的集合（包含所有可能模型的假设空间）；
+        \item 确定学习策略（即选择准则）；
+        \item 实现学习算法；
+        \item 通过学习方法选择最优模型；
+        \item 利用学习到的最优化框架对新数据进行分析和预测。
+    \end{description}
+\end{enumerate}
+\subsection{人工神经网络及其应用}
+\subsubsection{人工神经网络的结构设计}
+人工神经网络由input（输入），nerve cell(人工神经元)，weights(权值)，transfer function(传递函数)，
+activation function(激活函数)，以及threshold(阈值)。一个人工神经系统的结构见图~\ref{fig:人工神经系统的结构}。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=12cm]{allpicture/v2-8b848443200436ac60334082e1f1e472_r.png}
+    \caption{人工神经系统的结构.}
+    \label{fig:人工神经系统的结构}
+\end{figure}
+其中核心是神经元，每个神经元input = sum（其他神经元的input x weight），并借助激活函数进行处理后将结果再传递给后面的
+神经元，直到输出。这虽然看起来像是一系列简单的数学运算，但是如果将有限多层神经元堆叠起来，你就会获得一个能处理复杂任务的人工神经网络。
+比如语音识别、图像识别分类等问题。
+
+卷积神经网络、循环神经网络、玻尔兹曼机是三个常见的神经网络，下面我们用表格的形式来介绍
+他们各自的特点和应用领域，见表~\ref{卷积神经网络和循环神经网络}。
+\begin{table}[htbp]
+    \centering
+    \caption{卷积神经网络和循环神经网络的特点}
+    \label{卷积神经网络和循环神经网络}
+    \begin{tabular}{@{}cc@{}}
+        \toprule
+        名称   & 卷积神经网络                                                                                                        \\ \midrule
+        特点   & \begin{tabular}[c]{@{}c@{}}核心层是Convolution + Pooling + FullConnected\\ 同时实现特征提取和分类\\ 能根据局部获得全局信息\end{tabular} \\
+        应用领域 & 图像分类，目标检测跟踪，语义分割等                                                                                             \\ \midrule
+        名称   & 循环神经网络                                                                                                        \\ \midrule
+        特点   & \begin{tabular}[c]{@{}c@{}}可以根据借助时间序列的变化建模\\ 能有效处理序列特性的数据\end{tabular}                                        \\
+        应用领域 & 视频分析、机器翻译、语音识别等                                                                                               \\ \bottomrule
+    \end{tabular}
+\end{table}
+玻尔兹曼机是一种无监督深度学习模型，也是随机神经网络的一种。
+玻尔兹曼机也是一种特殊形式的对数线性的马尔科夫随机场（Markov Random Field，MRF），即能量函数是自由变量的线性函数。
+通过引入隐含单元，我们可以提升模型的表达能力，表示非常复杂的概率分布\cite{RenGongShenJingWangLuoArtificialNeurala}。他的特点如下：
+\begin{enumerate}
+    \item 玻尔兹曼机的特点：
+    \begin{description}
+        \item [学习阶段] 其权值设置或改变的算法是不确定的，通过某种概率分布不断变化调整。即每训练一次就可能改变一次。
+        \item [运行阶段] 状态的改变也不是按照非0即1这样的确定性方式，同样按照某种概率分布（状态改变取1或0的概率）来进行状态的转移。
+    \end{description}
+\end{enumerate}
+玻尔兹曼机中的受限玻尔兹曼机应用较多，主要应用是权重的初始化（让权重更有效的模拟数据）以及模型降维、分类和协同过滤，特征学习与主题建模等。
+\subsubsection{人工神经网络的学习算法}
+
+\subsubsection{人工神经网络在XX方面的应用}
 
 
 

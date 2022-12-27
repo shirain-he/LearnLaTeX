@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.16)  27 DEC 2022 16:01
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.12.16)  27 DEC 2022 22:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -573,33 +573,34 @@ LaTeX Info: Redefining \nameref on input line 48.
 \openout4 = `AIClassPaper.toc'.
 
 LaTeX Font Info:    Font shape `TU/SimSun(0)/m/sl' in size <12> not available
-(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 59.
+(Font)              Font shape `TU/SimSun(0)/m/it' tried instead on input line 55.
  [1
 
-]
-Overfull \hbox (18.00008pt too wide) in paragraph at lines 105--116
+] [2]
+Overfull \hbox (18.00008pt too wide) in paragraph at lines 100--111
  [][] 
  []
 
-[2]
+[3]
 File: allpicture/altitude_change.eps Graphic file (type eps)
 <allpicture/altitude_change.eps>
- [3] [4] [5] [6]
-Overfull \hbox (23.523pt too wide) detected at line 252
+ [4] [5] [6]
+Overfull \hbox (23.523pt too wide) detected at line 246
 [][]\OML/cmm/m/it/12 P\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 H \OMS/cmsy/m/n/12 j \OML/cmm/m/it/12 S\OT1/cmr/m/n/12 ) = []
  []
 
+[7]
 File: allpicture/a8ls3-uktor.eps Graphic file (type eps)
 <allpicture/a8ls3-uktor.eps>
 File: allpicture/ajop2-9xa4r.eps Graphic file (type eps)
 <allpicture/ajop2-9xa4r.eps>
-[7] [8] [9]
+ [8] [9]
 File: allpicture/alsxf-vpg1i.eps Graphic file (type eps)
 <allpicture/alsxf-vpg1i.eps>
  (f:/Latex/texlive/2022/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 336.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 330.
 
 Package fontspec Info: Could not resolve font "FangSong/BI" (it probably
 (fontspec)             doesn't exist).
@@ -623,22 +624,25 @@ Package fontspec Info: Font family 'FangSong(0)' created for font 'FangSong'
 (fontspec)             <->"FangSong/OT:script=hani;language=dflt;"
 (fontspec)             - 'small caps'  (m/sc) with NFSS spec.: 
 
- [10] (./Genetic_Algorithm_N_Queen.py [11]) [12] (./Normal_GeneticAlgorithm.py [13])
+ (./Genetic_Algorithm_N_Queen.py [10] [11] [12]) (./Normal_GeneticAlgorithm.py [13])
 File: allpicture/queen100normal.eps Graphic file (type eps)
 <allpicture/queen100normal.eps>
 File: allpicture/generic100normal.eps Graphic file (type eps)
 <allpicture/generic100normal.eps>
- (./AIClassPaper.bbl [14] [15]) [16] (./AIClassPaper.aux)
+ [14] [15]
+File: allpicture/v2-8b848443200436ac60334082e1f1e472_r.png Graphic file (type bmp)
+<allpicture/v2-8b848443200436ac60334082e1f1e472_r.png>
+ [16] (./AIClassPaper.bbl [17] [18]) [19] (./AIClassPaper.aux)
 Package rerunfilecheck Info: File `AIClassPaper.out' has not changed.
-(rerunfilecheck)             Checksum: 2ADB5EC2B4FDE1F2B73CF980420839BB;1579.
+(rerunfilecheck)             Checksum: CA24700564C264BDBA8E77001371B8D2;3271.
  ) 
 Here is how much of TeX's memory you used:
- 17517 strings out of 476179
- 373050 string characters out of 5810425
- 1115384 words of memory out of 5000000
- 37990 multiletter control sequences out of 15000+600000
+ 17609 strings out of 476179
+ 378206 string characters out of 5810425
+ 1120362 words of memory out of 5000000
+ 38079 multiletter control sequences out of 15000+600000
  474943 words of font info for 77 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 89i,15n,97p,408b,2088s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 89i,15n,97p,408b,2092s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on AIClassPaper.pdf (16 pages).
+Output written on AIClassPaper.pdf (19 pages).
