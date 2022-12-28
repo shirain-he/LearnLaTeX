@@ -414,8 +414,77 @@ activation function(激活函数)，以及threshold(阈值)。一个人工神经
 \end{enumerate}
 玻尔兹曼机中的受限玻尔兹曼机应用较多，主要应用是权重的初始化（让权重更有效的模拟数据）以及模型降维、分类和协同过滤，特征学习与主题建模等。
 \subsubsection{人工神经网络的学习算法}
+用于人工神经网络的学习算法有很多，Deeplearning Algorithms Tutorial（深度学习算法教程）一书将所有的人工智能算法应用总结如下\cite{DeeplearningAlgorithmsTutorial}：
+\begin{itemize}
+    \item 自动编码器(Autoencoder)
+    \item 反向传播(Backpropagation)
+    \item 递归神经网络(Recurrent Neural Network)
+    \item 多层感知器(Multilayer Perceptron)
+    \item 玻尔兹曼机(Boltzmann Machine)
+    \item 卷积神经网络(Convolutional Neural Network)
+    \item Hopfield网络(Hopfield Network)
+    \item 径向基函数网络(Radial Basis Function Network)
+    \item 受限玻尔兹曼机(Restricted Boltzmann Machine)
+    \item 自组织映射(Self-Organizing Map)
+    \item 尖峰神经网络(Spiking Neural Network)
+\end{itemize}    
+本文挑选比较常用的自动编码器算法、反向传播算法和受限玻尔兹曼机，并借助这些算法的相关应用文献来简要介绍。
+\subsubsection{人工神经网络在与预测和图像方面的应用}
+自动编码器（下文统称Autoencoder）其实是一种无监督的学习算法，用途主要在数据的降维和特征提取。
+Autoencoder可以很好的学习input中的元素特征，且通过Autoencoder编码的数据在完成解码的同时较好的保留了原始数据信息。
+Jiatong Shen等\cite{shenCreditCardFraud2021}使用一种基于深度神经网络的Autoencoder建立了一个信用卡欺诈预警系统，相比于传统的预警系统，该混合
+系统的AUC（Area Under the Curve）值提高到了0.9577，被证明具有更好的准确性且稳定性更佳。
 
-\subsubsection{人工神经网络在XX方面的应用}
+反向传播算法也称“误差反向传播”，可以计算网络中每个权重的损失函数梯度，，并反馈最优化方法用以不断更新权值的最小化损失函数。
+S. Prashant Mahasagara和Andry Alamsyah等\cite{mahasagaraIndonesiaInfrastructureConsumer2017}
+基于印度尼西亚基建和消费股股票价格历史走势，并借助人工神经网络的反向传播算法生成了一套相关行业股票价格的预测系统且可以以更小的误差率生成股票投资组合。
+实验结果证明，在当前市场投资风险较低、股票市场波动较小时，使用ANN反向传播的预测系统要优于实际的真实投资。
+
+上一个小章节我们介绍过玻尔兹曼机，这次我们要介绍的受限玻尔兹曼机是玻尔兹曼机的一种特殊拓扑结构，实质是一种概率图模型。
+受限是指限定模型为二分图，模型包含两部分，即可见单元和隐单元，对应输入参数和训练结果。为了比一般的玻尔兹曼机的训练算法更高效，
+二分图各边均连接可见单元与隐单元。
+\begin{figure}[htpb]
+     \centering
+     \includegraphics[width=0.6\textwidth]{allpicture/f5dt7-uxdal.eps}
+     \caption{受限玻尔兹曼机}
+     \label{fig:受限玻尔兹曼机}
+\end{figure}
+众所周知受限玻尔兹曼机（下统称RBM）的计算密度或强度较大，目前也有很多更快的训练算法被发展，
+如GPU/CPU加速算法、硬件改进以及神经元友好型加速算法，这使得大型RBMs在未来的应用变得可能。
+
+图像领域传统的字典学习算法收敛速度缓慢、训练稀疏表示的如图~\ref{fig:图像稀疏表示图}效果学习效果差、如果被噪声干扰学习效果会更糟糕。
+\begin{figure}[htpb]
+     \centering
+     \includegraphics[width=0.6\textwidth]{allpicture/图像稀疏表示图.eps}
+     \caption{图像稀疏表示图}
+     \label{fig:图像稀疏表示图}
+\end{figure}
+为了解决这个问题,Liu Lian等\cite{lianDictionaryLearningAlgorithm2021}提出了一种基于受限玻耳兹曼机的字典学习算法。
+字典学习的神经网络结构见图~\ref{fig:字典学习神经网络结构}
+\begin{figure}[htpb]
+     \centering
+     \includegraphics[width=0.4\textwidth]{allpicture/字典学习神经网络结构.eps}
+     \caption{字典学习神经网络结构}
+     \label{fig:字典学习神经网络结构}
+\end{figure}
+通过采用分段的训练方法训练稀疏表示的字典，充分学习多样性图像的稀疏表示，
+得到了RBM隐藏层神经元的概率分布。神经网络的权值训练采用最优字典矩阵。
+测试结果见图~\ref{fig:不同采样率重构图片的PSNR}，利用该算法重构的图片的PSNR随着采样率的下降而下降，图片清晰度也显著提高，见图~\ref{fig:重构图像的清晰度对比图}。
+\begin{figure}[htpb]
+     \centering
+     \includegraphics[width=0.6\textwidth]{allpicture/不同采样率重构图片的PSNR.eps}
+     \caption{不同采样率重构图片的PSNR}
+     \label{fig:不同采样率重构图片的PSNR}
+\end{figure}
+\begin{figure}[htpb]
+     \centering
+     \includegraphics[width=1\textwidth]{allpicture/重构图像的清晰度对比图.eps}
+     \caption{重构图像的清晰度对比图}
+     \label{fig:重构图像的清晰度对比图}
+\end{figure}
+实验结果表明,该算法能够提高去噪的效果和提高图片测试的精度。
+\section{总结}
+
 
 
 
