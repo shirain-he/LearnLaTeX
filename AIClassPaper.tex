@@ -11,8 +11,10 @@
 \usepackage{rotating}
 \usepackage{hyperref}
 \usepackage{booktabs}
-% 用来设置附录中代码的样式
+\usepackage{amsfonts}
+\usepackage{fancyhdr} %调用页眉页脚宏包
 
+% 用来设置附录中代码的样式
 \lstset{
     basicstyle          =   \sffamily,          % 基本代码风格
     keywordstyle        =   \bfseries,          % 关键字风格
@@ -47,11 +49,19 @@
 
 \begin{document}
 % \maketitle
+% \pagestyle{fancy}
+% \fancyhf{} % 清除所有页眉页脚
+% % \renewcommand{\headrulewidth}{0pt} % 去页眉线
+% \fancyfoot[R]{\thepage} % 设置右页脚为页码
+% \fancyhead[R]{\leftmark} % 设置右页眉为章节标题
 \tableofcontents
 
 \part{课程论文题目}
 人工智能基本理论及应用研究综述
 
+本文选取 \LaTeX 作为文章撰写工具。
+
+本文参考文献格式为GB/T 7714-2015-numerical。
 \part{课程论文内容}
 \section{知识表示与推理}
 \subsection{知识与知识表示}
@@ -454,46 +464,58 @@ S. Prashant Mahasagara和Andry Alamsyah等\cite{mahasagaraIndonesiaInfrastructur
 
 图像领域传统的字典学习算法收敛速度缓慢、训练稀疏表示的如图~\ref{fig:图像稀疏表示图}效果学习效果差、如果被噪声干扰学习效果会更糟糕。
 \begin{figure}[htpb]
-     \centering
-     \includegraphics[width=0.6\textwidth]{allpicture/图像稀疏表示图.eps}
-     \caption{图像稀疏表示图}
-     \label{fig:图像稀疏表示图}
+    \centering
+    \includegraphics[width=0.8\textwidth]{allpicture/图像稀疏表示图.eps}
+    \caption{图像稀疏表示图}
+    \label{fig:图像稀疏表示图}
 \end{figure}
 为了解决这个问题,Liu Lian等\cite{lianDictionaryLearningAlgorithm2021}提出了一种基于受限玻耳兹曼机的字典学习算法。
 字典学习的神经网络结构见图~\ref{fig:字典学习神经网络结构}
 \begin{figure}[htpb]
-     \centering
-     \includegraphics[width=0.4\textwidth]{allpicture/字典学习神经网络结构.eps}
-     \caption{字典学习神经网络结构}
-     \label{fig:字典学习神经网络结构}
+    \centering
+    \includegraphics[width=0.6\textwidth]{allpicture/字典学习神经网络结构.eps}
+    \caption{字典学习神经网络结构}
+    \label{fig:字典学习神经网络结构}
 \end{figure}
 通过采用分段的训练方法训练稀疏表示的字典，充分学习多样性图像的稀疏表示，
 得到了RBM隐藏层神经元的概率分布。神经网络的权值训练采用最优字典矩阵。
 测试结果见图~\ref{fig:不同采样率重构图片的PSNR}，利用该算法重构的图片的PSNR随着采样率的下降而下降，图片清晰度也显著提高，见图~\ref{fig:重构图像的清晰度对比图}。
 \begin{figure}[htpb]
-     \centering
-     \includegraphics[width=0.6\textwidth]{allpicture/不同采样率重构图片的PSNR.eps}
-     \caption{不同采样率重构图片的PSNR}
-     \label{fig:不同采样率重构图片的PSNR}
+    \centering
+    \includegraphics[width=0.6\textwidth]{allpicture/不同采样率重构图片的PSNR.eps}
+    \caption{不同采样率重构图片的PSNR}
+    \label{fig:不同采样率重构图片的PSNR}
 \end{figure}
 \begin{figure}[htpb]
-     \centering
-     \includegraphics[width=1\textwidth]{allpicture/重构图像的清晰度对比图.eps}
-     \caption{重构图像的清晰度对比图}
-     \label{fig:重构图像的清晰度对比图}
+    \centering
+    \includegraphics[width=1\textwidth]{allpicture/重构图像的清晰度对比图.eps}
+    \caption{重构图像的清晰度对比图}
+    \label{fig:重构图像的清晰度对比图}
 \end{figure}
 实验结果表明,该算法能够提高去噪的效果和提高图片测试的精度。
 \section{总结}
+本文分为三大块，分别是知识表示与推理、搜索与问题求解以及机器学习的理论和方法。
 
-
-
-
-
-
-
-
-
-
+其中重点内容有：
+\begin{itemize}
+    \item 确定性推理之启发式搜索算法在危险天气下航班路径规划的应用。
+    \item 不确定推理之主观贝叶斯方法在电熔镁炉熔炼过程异常工况识别的应用。
+    \item 遗传算法在八皇后问题中的具体实现以及实验设计。
+    \item 几种改进的遗传算法在八皇后问题中的具体实现以及实验设计。
+    \item 介绍了了人工神经网络的基础架构和常用的几种学习算法。
+    \item 介绍了人工神经网络自动编码器算法在信用卡欺诈预警系统的应用。
+    \item 介绍了人工神经网络反向传播算法在印尼相关行业股票投资预测方面的应用。
+    \item 介绍了基于人工神经网络受限玻尔兹曼机的新型字典学习算法在稀疏图像领域的应用。
+\end{itemize}
+结论和收获为：
+\begin{itemize}
+    \item 人工智能是本专业很多研究课题的基础，用心学好这门课可以了解到很多深度学习与机器学习的算法常识。
+    \item 从完全不了解人工智能的知识到对基础常用的人工智能算法和模型有了初步的认识。
+    \item 从之前只学习过简单直接的经典算法解决问题到现在开始体会到人工智能解决问题的独特方式。
+    \item 学习了遗传算法的实现及其使用，以及其在在八皇后问题的具体实现，体会到该算法仿生物学的特性的巧妙。
+    \item 学到了文献检索与分类，学习了Zetore文献管理软件的使用，能更快的处理文章编辑过程中的文献插入问题。
+    \item 学会了读英文文献的方法流程，磨练了自己的耐心，也非常感谢赵晖老师半年来的授课，我受益匪浅！
+\end{itemize}
 
 \bibliographystyle{gbt7714-numerical}
 \bibliography{F:/BibTeXref/zoterorepo.bib}
