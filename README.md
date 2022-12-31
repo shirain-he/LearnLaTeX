@@ -8,7 +8,8 @@ LearnTex and write the course thesis.
 
 
 #### vscode settings.json文件
-//定义要在配方中使用的 LaTeX 编译工具。每个工具都标有其名称。 
+[参考自](https://zhuanlan.zhihu.com/p/166523064)
+    //定义要在配方中使用的 LaTeX 编译工具。每个工具都标有其名称。 
     //调用时，命令会使用 args 中定义的参数和 env 中定义的环境变量生成。 
     //通常，除非在路径中，否则每个参数中不应出现空格。
     //占位符 %DOC%、%DOC_W32%、%DOC_EXT%、%DOC_EXT_W32%、%DOCFILE%、%DOCFILE_EXT%、%DIR%、%DIR_W32%、%TMPDIR% 和 %OUTDIR%、%OUTDIR_W32% 可用.
