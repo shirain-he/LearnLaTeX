@@ -6,9 +6,9 @@ LearnTex and write the course thesis.
 #### 软件架构
 软件架构说明
 
-
-#### vscode settings.json文件
 [参考自](https://zhuanlan.zhihu.com/p/166523064)
+#### vscode settings.json文件
+    `
     //定义要在配方中使用的 LaTeX 编译工具。每个工具都标有其名称。 
     //调用时，命令会使用 args 中定义的参数和 env 中定义的环境变量生成。 
     //通常，除非在路径中，否则每个参数中不应出现空格。
@@ -282,7 +282,7 @@ LearnTex and write the course thesis.
         "editor.formatOnPaste": false,//针对某种语言，配置替代编辑器设置
         "editor.suggestSelection": "recentlyUsedByPrefix" //控制在建议列表中如何预先选择建议。recentlyUsedByPrefix: 根据之前补全过的建议的前缀来进行选择。例如，co -> console、con -> const。
     },
-
+`
 上述代码全是latex配置文件，加到vscode settings.json文件。
 
 #### 使用说明
