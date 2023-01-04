@@ -10,10 +10,10 @@ from Genetic_Algorithm_N_Queen import softmax, mutation
 from Genetic_Algorithm_N_Queen import GA
 
 # 调用种群数为100的遗传函数GA
-GeneticDict, Queen = GA(size = 100)
+GeneticDict, Queen = GA(size = 8)
 
 # 测试结果
------------------------------------
+----------------------------------
 Generation :  0
 current max fitnessvalue: 24
 Generation :  1
@@ -29,11 +29,11 @@ current max fitnessvalue: 26
 
 --中间遗传过程省略--
 
-Generation :  1769
-current max fitnessvalue: 25
-Generation :  1770
+Generation :  2285
+current max fitnessvalue: 24
+Generation :  2286
 Find Target!
 [6 4 2 0 5 7 1 3]
 
-总遗传代数：1770代
-计算总耗时： 15.8s
+示例总遗传代数：2286代
+示例计算总耗时： 5.8s

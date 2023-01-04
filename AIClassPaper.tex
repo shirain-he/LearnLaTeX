@@ -2,7 +2,7 @@
 \CTEXsetup[format={\Large\bfseries}]{part}
 \CTEXsetup[format={\Large\bfseries}]{section}
 
-\usepackage{ctex}
+% \usepackage{ctex}
 \usepackage{xcolor}
 \usepackage{listings}
 \usepackage{commath}
@@ -13,6 +13,14 @@
 \usepackage{booktabs}
 \usepackage{amsfonts}
 \usepackage{fancyhdr} %调用页眉页脚宏包
+\usepackage{hyperref} %插入超链接和网址
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,      
+    urlcolor=blue,
+    citecolor=cyan,
+}
 
 % 用来设置附录中代码的样式
 \lstset{
@@ -57,11 +65,13 @@
 \tableofcontents
 
 \part{课程论文题目}
-人工智能基本理论及应用研究综述
+论文题目：人工智能基本理论及应用研究综述
 
-本文选取 \LaTeX 作为文章撰写工具。
+论文排版撰写工具：Vscode、 \LaTeX 和Zotero。
 
-本文参考文献格式为GB/T 7714-2015-numerical。
+论文全部配置文件仓库为：\url{https://gitee.com/funpony/learn-tex}。
+
+本文参考文献格式：GB/T 7714-2015-numerical。
 \part{课程论文内容}
 \section{知识表示与推理}
 \subsection{知识与知识表示}
@@ -203,7 +213,7 @@ $ n $表示当前网格点，$ g $表示目标点，$ x_g, x_n$等表示相应�
 \end{table}
 \subsubsection{不确定性推理之主观贝叶斯方法}
 常见的不确定性推理方法有模糊推理、可信度、证据理论、主观贝叶斯方法等等。本文主要选取主观贝叶斯
-方法来着重介绍一下。主观贝叶斯方法隶属于规则推理方法，其以贝叶斯理论为依据，克服了实际问题中很难获取到先验概率的问题。\cite{gonenComparingObjectiveSubjective2019}\cite{uzunogluAdaptiveBayesianApproach2020a}
+方法来着重介绍一下。主观贝叶斯方法隶属于规则推理方法，其以贝叶斯理论为依据，克服了实际问题中很难获取到先验概率的问题\cite{gonenComparingObjectiveSubjective2019}\cite{uzunogluAdaptiveBayesianApproach2020a}。
 我们都知道贝叶斯公式为式~\ref{eq:bayes},而将全概率公式代入后可得贝叶斯公式的另一种形式，即式~\ref{eq:全概率Bayes}。
 \begin{equation}
     P\left(A_i \mid B\right)=\frac{P\left(A_i\right) \times P\left(B \mid A_i\right)}{P(B)}, i=1,2, \ldots, n
@@ -309,11 +319,17 @@ $ L_S $和$ L_N $由领域内的专家给出，避免了我们自己的数据统
 判断某一种搜索到的状态比另一种更好，进而能朝向更优的方向不断搜索。而超越经典搜索（局部搜索）则不太关心搜搜过程中的
 路径和代价，只关注解的状态。与之前的无信息搜索是在可观察、确定性以及已知的环境之下搜索不同，局部搜索跳出这些约束，不关心路径，从单个结点出发，
 通常只移动到该结点的邻近状态，如果存在一个最优解，最优局部搜索状态通常能找到最优解对应的最大或者最小值。
-\subsection{遗传算法及其改进方法在八皇后问题中的对比分析}
+\subsection{简单遗传算法解决八皇后问题中理论与设计}
 \subsubsection{遗传算法简介}
 遗传算法是借鉴了达尔文生物进化学说中种群遗传、基因突变、自然选择和杂交等理论的一种进化搜索算法。
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=8cm]{allpicture/alsxf-vpg1i.eps}
+    \caption{简单遗传算法的步骤\cite{pandeyGeneticAlgorithmsConcepts2012}.}
+    \label{fig:遗传算法的步骤}
+\end{figure}
 \begin{enumerate}
-    \item 遗传算法的具体实现步骤：
+    \item 遗传算法的具体实现步骤如图~\ref{fig:遗传算法的步骤}：
     \begin{description}
         \item 生成随机候选群、初始化群基因个数。
         \item 设计适应度函数计算fitness\_value。
@@ -322,14 +338,8 @@ $ L_S $和$ L_N $由领域内的专家给出，避免了我们自己的数据统
         \item 不断生成新种群，知道达到适应度要求的值。
     \end{description}
 \end{enumerate}
-\begin{figure}[htbp]
-    \centering
-    \includegraphics[width=12cm]{allpicture/alsxf-vpg1i.eps}
-    \caption{简单遗传算法的步骤\cite{pandeyGeneticAlgorithmsConcepts2012}.}
-    \label{fig:遗传算法的步骤}
-\end{figure}
 \subsubsection{遗传算法用于八皇后问题的介绍}
-我们这次要解决的问题是八皇后问题，用八位数字来代表每个皇后，八个皇后组成遗传种群，并设置遗传种群的大小为100。
+我们这次要解决的问题是八皇后问题，用八位数字来代表每个皇后，八个皇后组成遗传种群，并设置遗传种群的大小为8。
 用不相互攻击的皇后对的数目来代表fitness\_value（即适应度值）。而如果检查次数（检查当前皇后位置是否与其他所有行列的皇后冲突）达到28，
 则代表已找到八皇后的解。而是否选择该种群的某些个体进行下一轮的遗传则取决于个体的适应度值，适应度值越大，被选中的概率越高。
 简单遗传算法的Python实现见列表\ref{Genetic_Algorithm_N_Queen.py}，语言环境Python 3.8.13 64-bit。
@@ -338,8 +348,7 @@ $ L_S $和$ L_N $由领域内的专家给出，避免了我们自己的数据统
     caption     =   {简单遗传算法的Python实现\cite{EightQueensPuzzle}.},
     label       =   {Genetic_Algorithm_N_Queen.py}
 ]{Genetic_Algorithm_N_Queen.py}
-
-\subsubsection{普通遗传算法解决八皇后问题的具体实现} 
+\subsubsection{普通遗传算法解决八皇后问题的具体实现}
 根据种群中每个个体的fitness\_value在当前种群中总fitness\_value中的占比（即计算每个个体适应度值的概率分布）来选择一批用于繁衍下一代种群的新个体。
 实验软件为Visual Studio Code. Version 1.56.2 测试平台：jupyter notebook，语言环境Python 3.8.13 64-bit。
 采用这种策略的实验过程和结果见列表\ref{Normal_GeneticAlgorithm}，图~\ref{fig:简单遗传算法的解8-Queen图}和图~\ref{fig:简单遗传算法的解收敛过程}。
@@ -360,7 +369,57 @@ $ L_S $和$ L_N $由领域内的专家给出，避免了我们自己的数据统
     \caption{简单遗传算法的解收敛过程.}
     \label{fig:简单遗传算法的解收敛过程}
 \end{figure}
+\subsection{三种改进遗传算法解决八皇后问题的设计和结论}
+本文介绍三种遗传算法的改进，其本质是对图~\ref{fig:遗传算法的步骤}中某个环节进行了优化，三种改进方法分别是自适应遗传算法，
+双倍体遗传算法，双种群遗传算法\cite{王万良2011人工智能导论}。实验软件为 Visual Studio Code. Version 1.56.2 。语言环境 Python 3.8.13 64-bit。
+三种方法的种群大小均为8，用每个方法找到所有解并记录每个解的遗传代数。实验结果统一放在代码板网站上，可以点击链接访问。
+\subsubsection{遗传算法改进之自适应遗传算法解决八皇后问题}
+自适应遗传算法的改进主要是突变函数和交叉函数的交叉算子方面，不再像普通遗传算法那样以固定的方式来计算突变概率和交叉概率，
+而是让这两种概率能随着每代种群的适应度变化而变化，所以该算法可以很好的改善局部最优问题，更有利于优良个体的生存。
+所以，该算法可以更好的优化突变和交叉过程，有利于跳出普通遗传算法容易出现的局部最优陷阱。
 
+对比普通遗传算法，自适应遗传算法主要变化在hybridization函数来让每代种群突变和交叉概率随适应度而变化,详情见~\ref{Genetic_Adaptive.py}。
+\lstinputlisting[
+    style       =   Python,
+    caption     =   {自适应遗传算法的Python实现.},
+    label       =   {Genetic_Adaptive.py}
+]{Genetic_Adaptive.py}
+自适应遗传算法完整的实验代码见 \url{https://paste.ubuntu.com/p/wyKvN54byn/},
+实验结果（每次找到解的迭代次数）见 \url{https://paste.ubuntu.com/p/g68KF3pxg5/}。
+从实验结果可以看到，最小遗传代数146代即获得了可用的解，相比于普通遗传算法还是提升较为明显。平均遗传代数在10000代左右。
+但其最大迭代次数为52017代，远超平均遗传代数和解的时间，且多于40000代的情况出现的次数较多，应该是频繁出现过局部收敛现象
+\subsubsection{遗传算法改进之双倍体遗传算法解决八皇后问题}
+普通遗传算法在选择和突变过程中是单条染色体，但在生物学上大多数生物是具有多条染色体的（如AaBb型），并且存在基因的显性和隐形之分。
+由于显性基因会在后代中显现所以我们在选择操作中按照染色体显性基因来计算下一代种群的选择概率，在交叉和突变过程也需要
+根据显隐性分别计算。通过增加显隐性基因重排可以解决下一代的基因显隐性划分，这样做不仅可以增加算法随机性，也能提高染色体基因为隐形的
+优良个体遗传概率。
+对比普通遗传算法，双倍体遗传算法主要的变化在hybridization函数，在突变、选择和交换过程中引入了隐形基因组成两对基因来进行遗传，详情
+见~\ref{Genetic_Double.py}。
+\lstinputlisting[
+    style       =   Python,
+    caption     =   {双倍体遗传算法的Python实现.},
+    label       =   {Genetic_Double.py}
+]{Genetic_Double.py}
+双倍体遗传算法完整的实验代码见 \url{https://paste.ubuntu.com/p/sjhVnRjyZx/}，实验结果见 \url{https://paste.ubuntu.com/p/tjPmPBwsgy/}。
+从该算法的实验结果可以看到，虽然双倍体遗传算法也出现了迭代56014代的现象，但是出现这种局部收敛现象的次数很少且解平均迭代代数为8000附近，
+其找到解的最小迭代代数为118，相较于自适应遗传算法，其提升较为明显。
+\subsubsection{遗传算法改进之双种群遗传算法解决八皇后问题}
+当遗传种群长时间进化后可能会陷入某种相对优势而不是全局最优的状态，使整个遗传算法的效率降低，为了打破这种平衡态跳出局部最优状态故而
+提出了双种群的改进方案，即两个种群同时进行图~\ref{fig:遗传算法的步骤}的流程，然后从完成迭代的两个种群中选取随机数个最优个体打破平衡态。
+这也可以进一步提高遗传算法的随机性，提高遗传算法的迭代效率。
+首先，该改进算法同时定义了两个种群（即父种群和子种群），又像上面两种改进一样，双种群遗传算法在初始化函数，hybridization函数以及main函数中
+全部进行两个种群的遗传操作，详情见~\ref{Genetic_Double_Population.py}。
+\lstinputlisting[
+    style       =   Python,
+    caption     =   {双种群遗传算法的Python实现.},
+    label       =   {Genetic_Double_Population.py}
+]{Genetic_Double_Population.py}
+双种群遗传算法完整的实验代码见 \url{https://paste.ubuntu.com/p/QPvVR4KRPJ/}，实验结果见\url{https://paste.ubuntu.com/p/D6h9f4yXWC/}。
+双种群的实验结果显示求解的最大迭代代数为30640代，局部收敛的状态套更好一点，且高迭代代数出现的频率很低，其解的最小迭代数仅为33代，平均迭代数不到5000。
+显著优于自适应算法和双倍体遗传算法。
+\subsubsection{三种改进遗传算法解决八皇后问题的实验对比和结论}
+代码运行过程中可以很明显的看到，普通遗传算法找到第一个解的时间通常在5秒左右，三种改进遗传算法找到第一个解的速度基本在3秒以内，虽然遗传代数要偏大一些，但是效率要比普通遗传算法
+好很多，而根据实验结果来看，三种改进遗传算法中效果最好的是双种群遗传算法，双倍体遗传算法次之，最后是自适应遗传算法。
 \section{机器学习基本理论与方法}
 \subsection{机器学习的基本概念及其学习策略}
 机器学习也叫统计学习（Statistics Learning），就是利用现有数据或者知识并去寻找一些适合他的模型对其进行描述和表示
@@ -454,10 +513,10 @@ S. Prashant Mahasagara和Andry Alamsyah等\cite{mahasagaraIndonesiaInfrastructur
 受限是指限定模型为二分图，模型包含两部分，即可见单元和隐单元，对应输入参数和训练结果。为了比一般的玻尔兹曼机的训练算法更高效，
 二分图各边均连接可见单元与隐单元。
 \begin{figure}[htpb]
-     \centering
-     \includegraphics[width=0.6\textwidth]{allpicture/f5dt7-uxdal.eps}
-     \caption{受限玻尔兹曼机}
-     \label{fig:受限玻尔兹曼机}
+    \centering
+    \includegraphics[width=0.6\textwidth]{allpicture/f5dt7-uxdal.eps}
+    \caption{受限玻尔兹曼机}
+    \label{fig:受限玻尔兹曼机}
 \end{figure}
 众所周知受限玻尔兹曼机（下统称RBM）的计算密度或强度较大，目前也有很多更快的训练算法被发展，
 如GPU/CPU加速算法、硬件改进以及神经元友好型加速算法，这使得大型RBMs在未来的应用变得可能。
@@ -465,37 +524,39 @@ S. Prashant Mahasagara和Andry Alamsyah等\cite{mahasagaraIndonesiaInfrastructur
 图像领域传统的字典学习算法收敛速度缓慢、训练稀疏表示的如图~\ref{fig:图像稀疏表示图}效果学习效果差、如果被噪声干扰学习效果会更糟糕。
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.8\textwidth]{allpicture/图像稀疏表示图.eps}
+    \includegraphics[width=0.6\textwidth]{allpicture/图像稀疏表示图.eps}
     \caption{图像稀疏表示图}
     \label{fig:图像稀疏表示图}
 \end{figure}
 为了解决这个问题,Liu Lian等\cite{lianDictionaryLearningAlgorithm2021}提出了一种基于受限玻耳兹曼机的字典学习算法。
-字典学习的神经网络结构见图~\ref{fig:字典学习神经网络结构}
+字典学习的神经网络结构见图~\ref{fig:字典学习神经网络结构}。
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.6\textwidth]{allpicture/字典学习神经网络结构.eps}
+    \includegraphics[width=0.4\textwidth]{allpicture/字典学习神经网络结构.eps}
     \caption{字典学习神经网络结构}
     \label{fig:字典学习神经网络结构}
 \end{figure}
 通过采用分段的训练方法训练稀疏表示的字典，充分学习多样性图像的稀疏表示，
-得到了RBM隐藏层神经元的概率分布。神经网络的权值训练采用最优字典矩阵。
-测试结果见图~\ref{fig:不同采样率重构图片的PSNR}，利用该算法重构的图片的PSNR随着采样率的下降而下降，图片清晰度也显著提高，见图~\ref{fig:重构图像的清晰度对比图}。
+得到了RBM隐藏层神经元的概率分布。
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=0.6\textwidth]{allpicture/不同采样率重构图片的PSNR.eps}
+    \includegraphics[width=0.4\textwidth]{allpicture/不同采样率重构图片的PSNR.eps}
     \caption{不同采样率重构图片的PSNR}
     \label{fig:不同采样率重构图片的PSNR}
 \end{figure}
 \begin{figure}[htpb]
     \centering
-    \includegraphics[width=1\textwidth]{allpicture/重构图像的清晰度对比图.eps}
+    \includegraphics[width=0.7\textwidth]{allpicture/重构图像的清晰度对比图.eps}
     \caption{重构图像的清晰度对比图}
     \label{fig:重构图像的清晰度对比图}
 \end{figure}
+神经网络的权值训练采用最优字典矩阵。
+测试结果见图~\ref{fig:不同采样率重构图片的PSNR}，利用该算法重构的图片的PSNR随着采样率的下降而下降，
+图片清晰度也显著提高，见图~\ref{fig:重构图像的清晰度对比图}。
 实验结果表明,该算法能够提高去噪的效果和提高图片测试的精度。
 \section{总结}
 本文分为三大块，分别是知识表示与推理、搜索与问题求解以及机器学习的理论和方法。
-
+\subsection{本文重点内容总结}
 其中重点内容有：
 \begin{itemize}
     \item 确定性推理之启发式搜索算法在危险天气下航班路径规划的应用。
@@ -507,16 +568,18 @@ S. Prashant Mahasagara和Andry Alamsyah等\cite{mahasagaraIndonesiaInfrastructur
     \item 介绍了人工神经网络反向传播算法在印尼相关行业股票投资预测方面的应用。
     \item 介绍了基于人工神经网络受限玻尔兹曼机的新型字典学习算法在稀疏图像领域的应用。
 \end{itemize}
+\subsection{结论、收获和致谢}
 结论和收获为：
 \begin{itemize}
     \item 人工智能是本专业很多研究课题的基础，用心学好这门课可以了解到很多深度学习与机器学习的算法常识。
     \item 从完全不了解人工智能的知识到对基础常用的人工智能算法和模型有了初步的认识。
     \item 从之前只学习过简单直接的经典算法解决问题到现在开始体会到人工智能解决问题的独特方式。
     \item 学习了遗传算法的实现及其使用，以及其在在八皇后问题的具体实现，体会到该算法仿生物学的特性的巧妙。
-    \item 学到了文献检索与分类，学习了Zetore文献管理软件的使用，能更快的处理文章编辑过程中的文献插入问题。
-    \item 学会了读英文文献的方法流程，磨练了自己的耐心，也非常感谢赵晖老师半年来的授课，我受益匪浅！
+    \item 学到了文献检索与分类，学习了Zotero文献管理软件的使用，能更快的处理文章编辑过程中的文献插入问题。
+    \item 学会了阅读英文文献的方法流程，磨练了自己的耐心。
 \end{itemize}
 
+最后，非常感谢赵晖老师半年来的授课和指导、同学们的陪伴，令我受益匪浅！
 \bibliographystyle{gbt7714-numerical}
 \bibliography{F:/BibTeXref/zoterorepo.bib}
 \end{document}
