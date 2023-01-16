@@ -13,9 +13,8 @@
 - 更改局部编号或相关格式，全文自动更新索引。
 - 借助git一键上传，不怕电脑坏，不用再命名各种版本，随时回看想看的版本！
 
-
 5. 本仓库也是本人作为LaTeX初学者的经验总结，欢迎大家参与、分享并Stared！
-6. 相关资源均标明出处，如有不当之处可联系我修改！<br>侵删 please contact with me delete it if infringing!
+6. 相关资源均标明出处，如有不当之处可联系我修改！<br> 侵删 please contact with me delete it if infringing!
 
 ### 软件架构说明
 
@@ -33,6 +32,7 @@
 - **allpicture** 存放所有用到的图片的文件夹 （需要自己将图片拖入源文件夹）。
 
 ### VS Code配置即settings.json文件配置
+
 1. Vscode的设置分别参考自：
 
 - [知乎 Ali-loner](https://zhuanlan.zhihu.com/p/166523064)
