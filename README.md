@@ -1,14 +1,42 @@
 # LearnTex
 
-#### 介绍
-LearnTex and write the course thesis.
+## 介绍
 
-#### 软件架构
-软件架构说明
+1. 本仓库收录 ***Latex+Vscode+Zotero+Git*** 论文撰写超级工具链的详细配置和使用说明。
+2. 提供了本人实战的一篇用该工具撰写的论文可供测试。
+3. 本文搜集了目前可用的大部分实用工具和极速入门教程。
+4. 该工具链优点如下：
 
-[参考自](https://zhuanlan.zhihu.com/p/166523064)
-#### vscode settings.json文件
-    `
+- 实现论文文本与格式分离，文献快速交叉引用。
+- 实时查看pdf！代码公式表格极速插入。
+- 目录图片表格公式参考文献自动编号引用。
+- 更改局部编号或相关格式，全文自动更新索引。
+- 借助git一键上传，不怕电脑坏，不用再命名各种版本，随时回看想看的版本！
+
+
+5. 本仓库也是本人作为LaTeX初学者的经验总结，欢迎大家参与、分享并Stared！
+6. 相关资源均标明出处，如有不当之处可联系我修改！<br>侵删 please contact with me delete it if infringing!
+
+### 软件架构说明
+
+- 首先需要下载Tex Live、VS Code、Zotero三个软件
+- 而后需要在VS Code中下载Latex WorkShop插件，Zotero LaTeX插件。
+- 在Zotero中安装Better Bib ZeteroTeX For Zotero插件。
+- 以VS Code为中心，借助Latex WorkShop插件联动Tex live、借助Zotero LaTeX联动Zetoro（主要用于参考文献的快速交叉引用）。
+
+### 文章架构说明
+
+- 我们只需要关注 *.tex* 文件和 *.pdf* 文件;
+- **.tex** 是我们编辑latex代码和填充文字的主文件;
+- **.pdf** 文件是我们的论文成果显示，其他文件是latex编译链自动生成;
+- *.py* 文件是我们需要插入的代码文件;
+- **allpicture** 存放所有用到的图片的文件夹 （需要自己将图片拖入源文件夹）。
+
+### VS Code配置即settings.json文件配置
+
+- 将下面的代码复制到你的VS Code settings.json文件中。
+
+```json
     //定义要在配方中使用的 LaTeX 编译工具。每个工具都标有其名称。 
     //调用时，命令会使用 args 中定义的参数和 env 中定义的环境变量生成。 
     //通常，除非在路径中，否则每个参数中不应出现空格。
@@ -282,22 +310,37 @@ LearnTex and write the course thesis.
         "editor.formatOnPaste": false,//针对某种语言，配置替代编辑器设置
         "editor.suggestSelection": "recentlyUsedByPrefix" //控制在建议列表中如何预先选择建议。recentlyUsedByPrefix: 根据之前补全过的建议的前缀来进行选择。例如，co -> console、con -> const。
     },
-`
-上述代码全是latex配置文件，加到vscode settings.json文件。
+```
 
-#### 使用说明
+### 其他资源（非常实用的latex学习教程和实用工具）
 
-1.  编译链用的是Xelatex-Bibtex-Xelatex*2
-2.  论文即时显式用的是外部pdf显示器SumatrPDF(也可以不用)
-3.  插入文献借助Zotero插件Alt+Z实现。
-4.  文献格式GB/T 7714-numerical-2015.
-即\bibliographystyle{gbt7714-numerical}
-5.  ![输入图片说明](https://foruda.gitee.com/images/1672459540424413823/8df11a3a_10448467.png "屏幕截图")
-这是Zotero插件信息，箭头为快捷插入文献插件，必备。
-#### 参与贡献
+- 关于Latex极速入门视频推荐: [B站up主circlelq](https://www.bilibili.com/video/BV1nv4y1Q7fz/?spm_id_from=333.337.search-card.all.click&vd_source=857cbb7cbeb544de1acad66a29b6fbf8)
+- Latex+Vscode+Zotero联动实现文献快速交叉引用的教程: [B站up主一个林子漾](https://www.bilibili.com/video/BV1ug411W7nY/?spm_id_from=333.337.search-card.all.click&vd_source=857cbb7cbeb544de1acad66a29b6fbf8)
+- **最常用** 公式快速识别并转化为latex代码:[Mathpix Snipping Tool](https://blog.csdn.net/Yu_X_Q/article/details/117391844)
+- Zotero所有插件镜像下载:[Zotero中文社区](https://zotero-chinese.gitee.io/zotero-plugins/#/)
+- Latex代码插入解决方案:[知乎littleNewton](https://zhuanlan.zhihu.com/p/65441079)
+- Latex 表格生成工具网站:[table generator](https://www.tablesgenerator.com/)
+- 在线LaTeX公式编辑器: [手动构造单个公式](https://www.latexlive.com/)
+- 图片格式转换为eps工具网站:[PNG/JPG转EPS](https://www.aconvert.com/cn/image/)
+- Latex GB/T 7714中文文献相关格式包见[Github zepinglee](https://github.com/zepinglee/gbt7714-bibtex-style)
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+### 使用说明
 
+1. 编译链用的是Xelatex-Bibtex-Xelatex*2
+2. 论文即时显式用的是外部pdf显示器SumatrPDF(也可以不用)
+3. 插入文献借助Zotero插件Alt+Z实现。
+4. 文献格式GB/T 7714-numerical-2015。
+
+- 文章末尾添加下面代码实现交叉引用和指定文献格式。
+
+```latex
+\bibliographystyle{gbt7714-numerical} % 你的文献样式包bst文件的名字，本文使用gbt7714-numerical.bst
+\bibliography{F:/BibTeXref/zoterorepo.bib} % 你从zotero导出的bib文件
+```
+
+### 参与贡献
+
+1. Fork 本仓库
+2. 新建 Feat_TexContributor_00X 分支
+3. 提交代码
+4. 新建 Pull Request
