@@ -33,8 +33,13 @@
 - **allpicture** 存放所有用到的图片的文件夹 （需要自己将图片拖入源文件夹）。
 
 ### VS Code配置即settings.json文件配置
+1. Vscode的设置分别参考自：
 
-- 将下面的代码复制到你的VS Code settings.json文件中。
+- [知乎 Ali-loner](https://zhuanlan.zhihu.com/p/166523064)
+- [知乎 超级懒的小周](https://zhuanlan.zhihu.com/p/397280207)
+- [Latex+VSCode 正向搜索和反向搜索](https://jintaolee-roger.github.io/posts/latexsearch/)
+
+2. 将下面的代码复制到你的VS Code settings.json文件中。
 
 ```json
     //定义要在配方中使用的 LaTeX 编译工具。每个工具都标有其名称。 
